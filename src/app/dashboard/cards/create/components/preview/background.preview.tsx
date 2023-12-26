@@ -5,7 +5,7 @@ import LogoImagePreview from "./logo.preview";
 import ShopAddressPreview from "./shopAddress.preview";
 import ShopDetailsPreview from "./shopDetails.preview";
 import ShopLinksPreview from "./shopLinks.preview";
-import { getCreateCardState } from "@/store/redux/reducers/createCard.reducer";
+import { getCreateCardState } from "@/store/redux/features/card/reducers";
 
 const BackgroundImagePreview: React.FC = () => {
   const { background } = useAppSelector(getCreateCardState);

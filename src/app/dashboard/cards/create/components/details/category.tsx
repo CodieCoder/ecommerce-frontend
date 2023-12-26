@@ -1,6 +1,5 @@
 import { ComboSelect } from "@/components/combo";
 import useGetCategories from "../../hooks/useGetCategories";
-import SettingsCard, { DefaultCardTitle } from "../settingsContainer";
 import { Label } from "@/components/ui/label";
 
 const ChooseCategory = () => {

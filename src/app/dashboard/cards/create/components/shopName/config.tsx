@@ -7,14 +7,13 @@ import { useAppDispatcher, useAppSelector } from "@/store/redux/hooks";
 import {
   getCreateCardState,
   shopNameConfig,
-} from "@/store/redux/reducers/createCard.reducer";
+} from "@/store/redux/features/card/reducers";
 
 const ShopNameConfig = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const dispatch = useAppDispatcher();
-  const { fontWeight, color } =
-    useAppSelector(getCreateCardState).shopNameConfig;
+  const { fontWeight, color } = useAppSelector(getCreateCardState).nameConfig;
 
   const toggleBoldness = () => {
     dispatch(shopNameConfig({ fontWeight: !fontWeight }));

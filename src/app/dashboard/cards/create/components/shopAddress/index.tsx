@@ -3,7 +3,7 @@ import {
   getCreateCardState,
   shopAddress,
   shopAddressBackground,
-} from "@/store/redux/reducers/createCard.reducer";
+} from "@/store/redux/features/card/reducers";
 import SettingsCard, { DefaultCardTitle } from "../settingsContainer";
 import { Slider } from "@/components/ui/slider";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,7 +11,7 @@ import { Switch } from "@/components/ui/switch";
 
 const ShopAddress = () => {
   const dispatch = useAppDispatcher();
-  const { hide } = useAppSelector(getCreateCardState).shopAddressBackground;
+  const { hide } = useAppSelector(getCreateCardState).addressConfig;
 
   const toggleShopAddressHide = () => {
     dispatch(shopAddressBackground({ hide: !hide }));

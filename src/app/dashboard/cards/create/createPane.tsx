@@ -6,7 +6,6 @@ import CardBackground from "./components/background";
 import ShopAddress from "./components/shopAddress";
 import ShopDetails from "./components/shopDetails";
 import AddLinks from "./components/addLinks";
-import CreateCardActionButtons from "./components/actoinButtons";
 
 const CreateCardPane = () => {
   return (
@@ -21,7 +20,6 @@ const CreateCardPane = () => {
       <div className="col-span-1">
         <LogoImage />
         <AddLinks />
-        <CreateCardActionButtons />
       </div>
     </div>
   );

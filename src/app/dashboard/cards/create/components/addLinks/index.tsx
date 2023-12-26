@@ -1,25 +1,25 @@
 import { CustomButton } from "@/components/buttons";
 import { useAppDispatcher, useAppSelector } from "@/store/redux/hooks";
 import {
-  ICardLinks,
   shopLinks,
   shopLinksEdit,
   shopLinksDelete,
   shopLinksOverwrite,
   getCreateCardState,
-} from "@/store/redux/reducers/createCard.reducer";
+} from "@/store/redux/features/card/reducers";
 import { useRef, useState } from "react";
 import SettingsCard, { DefaultCardTitle } from "../settingsContainer";
 import AddNewLink from "./addLink";
 import Modal from "@/components/modal";
 import EachLink from "./eachLink";
+import { ICardLinks } from "@/store/redux/features/card/types";
 
 const AddLinks = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState<ICardLinks>();
 
   const dispatch = useAppDispatcher();
-  const { shopLinks: allLinks } = useAppSelector(getCreateCardState);
+  const { links: allLinks } = useAppSelector(getCreateCardState);
 
   const toggleModal = () => {
     setSelectedLink(undefined);

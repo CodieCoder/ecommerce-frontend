@@ -1,13 +1,12 @@
 import { useAppSelector } from "@/store/redux/hooks";
 import { memo } from "react";
 import { getMediaUrl } from "../../utils/index.utils";
-import { MediaFilesTypeEnum } from "../../../types";
 import LogoTextPreview from "./logoText.preview";
-import { getCreateCardState } from "@/store/redux/reducers/createCard.reducer";
+import { getCreateCardState } from "@/store/redux/features/card/reducers";
 
 const LogoImagePreview = () => {
-  const { shopLogo, shopLogoConfig } = useAppSelector(getCreateCardState);
-  const imageUrl = getMediaUrl(shopLogo);
+  const { logo, logoConfig } = useAppSelector(getCreateCardState);
+  const imageUrl = getMediaUrl(logo);
 
   return (
     <div className={"pt-4 text-center"}>
@@ -19,12 +18,12 @@ const LogoImagePreview = () => {
           height={100}
           className={`mx-auto`}
           style={{
-            width: `${shopLogoConfig.size}rem`,
-            height: `${shopLogoConfig.size}rem`,
-            borderColor: `${shopLogoConfig.borderColor}`,
-            borderWidth: `${shopLogoConfig.borderWidth}px`,
-            borderRadius: `${shopLogoConfig.rounded}%`,
-            opacity: `${shopLogoConfig.opacity}`,
+            width: `${logoConfig.size}rem`,
+            height: `${logoConfig.size}rem`,
+            borderColor: `${logoConfig.borderColor}`,
+            borderWidth: `${logoConfig.borderWidth}px`,
+            borderRadius: `${logoConfig.rounded}%`,
+            opacity: `${logoConfig.opacity}`,
           }}
         />
         <LogoTextPreview />

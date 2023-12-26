@@ -1,12 +1,12 @@
 import { useAppSelector } from "@/store/redux/hooks";
-import { getCreateCardState } from "@/store/redux/reducers/createCard.reducer";
+import { getCreateCardState } from "@/store/redux/features/card/reducers";
 
 const ShopDetailsText = () => {
-  const { shopDetails, shopNameConfig } = useAppSelector(getCreateCardState);
+  const { details, nameConfig } = useAppSelector(getCreateCardState);
   return (
-    <div className="" style={{ color: shopNameConfig.color }}>
+    <div className="" style={{ color: nameConfig.color }}>
       <div className="">About : </div>
-      <div className="whitespace-pre-wrap">{shopDetails}</div>
+      <div className="whitespace-pre-wrap">{details}</div>
     </div>
   );
 };

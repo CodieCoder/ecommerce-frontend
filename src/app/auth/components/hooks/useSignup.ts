@@ -6,9 +6,9 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import Constants_Api from "@/constants/api";
 import Utils_Api from "@/utils/api";
-import makeToast from "@/components/toast";
 import { signUp } from "@/api/auth";
 import { IApiError } from "@/api/utils/types";
+import { toast } from "sonner";
 
 const useSignup = () => {
   const router = useRouter();
@@ -20,10 +20,9 @@ const useSignup = () => {
         Utils_Api.GetStatusCode(data.status) ===
         Constants_Api.StatusCodeEnum.Success
       ) {
-        makeToast({
-          description:
-            "You account has been created successfully. Log in to continue",
-        });
+        toast.success(
+          "You account has been created successfully. Log in to continue"
+        );
         setIsSubmitError(undefined);
         router.push("signin");
       } else {

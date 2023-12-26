@@ -8,7 +8,7 @@ const Action_SubmitSignupForm = async (
 ) => {
   try {
     const response = await ApiService.post(
-      Constants_Api_Endpoint.User,
+      Constants_Api_Endpoint.User.signup,
       req.body
     );
     console.log("Testee signup Actions : ", res.status);

@@ -1,6 +1,6 @@
 import { ButtonRolesEnum, CustomButton } from "@/components/buttons";
 import { SocialMediaLinksArray, getSocialMedia } from "@/constants/socialLinks";
-import { ICardLinks } from "@/store/redux/reducers/createCard.reducer";
+import { ICardLinks } from "@/store/redux/features/card/reducers";
 import { truncateUrl } from "@/utils/utils";
 import React from "react";
 import { BiSolidEditAlt } from "react-icons/bi";

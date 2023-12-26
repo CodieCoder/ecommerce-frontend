@@ -1,10 +1,10 @@
 import { useAppSelector } from "@/store/redux/hooks";
 import ShopAddressText from "./text.shopAdress.preview";
-import { getCreateCardState } from "@/store/redux/reducers/createCard.reducer";
+import { getCreateCardState } from "@/store/redux/features/card/reducers";
 
 const ShopAddressPreview = () => {
   const { colour, opacity, borderWidth, hide } =
-    useAppSelector(getCreateCardState).shopAddressBackground;
+    useAppSelector(getCreateCardState).addressConfig;
 
   const backgroundColor = colour?.replace(")", `, ${opacity})`);
 

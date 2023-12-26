@@ -5,7 +5,7 @@ import {
   setBackgroundImage,
   setBackgroundColour,
   getCreateCardState,
-} from "@/store/redux/reducers/createCard.reducer";
+} from "@/store/redux/features/card/reducers";
 import Modal from "@/components/modal";
 import { useState } from "react";
 import ColourPicker from "@/lib/ColourPicker";

@@ -2,7 +2,7 @@ import { useAppDispatcher } from "@/store/redux/hooks";
 import {
   shopDetails,
   shopDetailsBackground,
-} from "@/store/redux/reducers/createCard.reducer";
+} from "@/store/redux/features/card/reducers";
 import SettingsCard, { DefaultCardTitle } from "../settingsContainer";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";

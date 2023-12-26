@@ -5,7 +5,7 @@ import {
   getCreateCardState,
   setShopLogo,
   shopLogoConfig,
-} from "@/store/redux/reducers/createCard.reducer";
+} from "@/store/redux/features/card/reducers";
 import ColourPicker from "@/lib/ColourPicker";
 import Modal from "@/components/modal";
 import { CustomButton } from "@/components/buttons";
@@ -15,7 +15,7 @@ import SettingsCard, { DefaultCardTitle } from "../settingsContainer";
 const LogoImage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useAppDispatcher();
-  const { borderColor } = useAppSelector(getCreateCardState).shopLogoConfig;
+  const { borderColor } = useAppSelector(getCreateCardState).logoConfig;
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);

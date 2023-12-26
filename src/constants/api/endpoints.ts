@@ -7,6 +7,9 @@ export const Constants_Api_Endpoint = {
     signup: "user/signup",
     signin: "user/signin",
   },
+  Card: {
+    save: "card",
+  },
 } as const;
 
 export default ApiBaseUrlEnum;

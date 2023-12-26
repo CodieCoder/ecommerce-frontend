@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { useAppDispatcher } from "@/store/redux/hooks";
-import { shopName } from "@/store/redux/reducers/createCard.reducer";
+import { shopName } from "@/store/redux/features/card/reducers";
 
 const ShopNameField = () => {
   const dispatch = useAppDispatcher();

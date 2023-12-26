@@ -7,7 +7,7 @@ import {
   SocialMediaLinksArray,
   getSocialMedia,
 } from "@/constants/socialLinks";
-import { ICardLinks } from "@/store/redux/reducers/createCard.reducer";
+import { ICardLinks } from "@/store/redux/features/card/reducers";
 import { useEffect, useState } from "react";
 
 const AddNewLink: React.FC<{

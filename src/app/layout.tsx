@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@/components/theme";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/components/ui/sonner";
 import UseQueryProvider from "@/lib/useQuery/provider";
 import { StoreProvider } from "@/store/redux/provider";
 import "@/styles/global.css";
@@ -28,7 +28,7 @@ export default function RootLayout({
           <UseQueryProvider>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <div className="App">{children}</div>
-              <Toaster />
+              <Toaster richColors />
             </ThemeProvider>
           </UseQueryProvider>
         </StoreProvider>

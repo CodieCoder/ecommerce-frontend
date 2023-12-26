@@ -1,59 +1,14 @@
 import { CardTypeEnum } from "@/app/dashboard/cards/types";
 import { SocialMediaEnum } from "@/constants/socialLinks";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ReduxRootStateType } from "../store";
-
-export type IMediaFiles = {
-  [index: string]: FileList | undefined;
-};
-
-export interface IBackground {
-  colour: string | undefined;
-  image: FileList | undefined;
-}
-
-export type IShopLogo = {
-  rounded?: number;
-  size?: number;
-  opacity?: number;
-  borderType?: "dotted" | "solid";
-  borderWidth?: number;
-  borderColor?: string;
-};
-
-export interface shopNameConfig {
-  fontWeight?: boolean;
-  color?: string;
-}
-
-export interface IShopAddressBackground {
-  colour?: string | undefined;
-  opacity?: number;
-  borderWidth?: number;
-  hide?: boolean;
-}
-
-export interface ICardLinks {
-  id?: string;
-  type?: string | SocialMediaEnum;
-  link?: string;
-  backgroundOpacity?: number;
-}
-
-export interface ICreateCardReducer {
-  category: string;
-  type: CardTypeEnum;
-  background: IBackground;
-  shopName: string | undefined;
-  shopNameConfig: shopNameConfig;
-  shopLogo: FileList | undefined;
-  shopLogoConfig: IShopLogo;
-  shopDetails: string;
-  shopDetailsBackground: IShopAddressBackground;
-  shopAddress: string | undefined;
-  shopAddressBackground: IShopAddressBackground;
-  shopLinks: ICardLinks[];
-}
+import { ReduxRootStateType } from "../../store";
+import {
+  ICardLinks,
+  ICreateCardReducer,
+  IShopAddressBackground,
+  IShopLogo,
+  IShopNameConfig,
+} from "./types";
 
 const initialState = {
   category: "",
@@ -63,12 +18,12 @@ const initialState = {
     image: undefined,
   },
   shopName: "your shop name",
-  shopNameConfig: {
+  nameConfig: {
     fontWeight: false,
     color: "rgb(255, 255, 255)",
   },
-  shopLogo: undefined,
-  shopLogoConfig: {
+  logo: undefined,
+  logoConfig: {
     rounded: 100,
     size: 6,
     opacity: 1,
@@ -76,20 +31,20 @@ const initialState = {
     borderWidth: 3,
     borderColor: "rgba(255, 255, 255, 0.3)",
   },
-  shopAddress: "Shop 13B Aproko Plaze, Wuse Abuja",
-  shopAddressBackground: {
+  address: "Shop 13B Aproko Plaze, Wuse Abuja",
+  addressConfig: {
     colour: "rgb(255, 255, 255)",
     opacity: 0.25,
     borderWidth: 0,
     hide: true,
   },
-  shopDetails: "Sales of everything great, uniques, and amazingly wonderful",
-  shopDetailsBackground: {
+  details: "Sales of everything great, uniques, and amazingly wonderful",
+  detailsConfig: {
     colour: "rgb(255, 255, 255)",
     opacity: 0.25,
     borderWidth: 0,
   },
-  shopLinks: [],
+  links: [],
 } as ICreateCardReducer;
 
 export const createCardSlice = createSlice({
@@ -112,56 +67,54 @@ export const createCardSlice = createSlice({
     shopName: (state, action: PayloadAction<string>) => {
       state.shopName = action.payload;
     },
-    shopNameConfig: (state, action: PayloadAction<shopNameConfig>) => {
-      state.shopNameConfig = { ...state.shopNameConfig, ...action.payload };
+    shopNameConfig: (state, action: PayloadAction<IShopNameConfig>) => {
+      state.nameConfig = { ...state.nameConfig, ...action.payload };
     },
     setShopLogo: (state, action: PayloadAction<FileList | undefined>) => {
-      state.shopLogo = action.payload;
+      state.logo = action.payload;
     },
     shopLogoConfig: (state, action: PayloadAction<IShopLogo>) => {
-      state.shopLogoConfig = { ...state.shopLogoConfig, ...action.payload };
+      state.logoConfig = { ...state.logoConfig, ...action.payload };
     },
     shopDetails: (state, action: PayloadAction<string>) => {
-      state.shopDetails = action.payload;
+      state.details = action.payload;
     },
     shopDetailsBackground: (
       state,
       action: PayloadAction<IShopAddressBackground>
     ) => {
-      state.shopDetailsBackground = {
-        ...state.shopDetailsBackground,
+      state.detailsConfig = {
+        ...state.detailsConfig,
         ...action.payload,
       };
     },
     shopAddress: (state, action: PayloadAction<string | undefined>) => {
-      state.shopAddress = action.payload;
+      state.address = action.payload;
     },
     shopAddressBackground: (
       state,
       action: PayloadAction<IShopAddressBackground>
     ) => {
-      state.shopAddressBackground = {
-        ...state.shopAddressBackground,
+      state.addressConfig = {
+        ...state.addressConfig,
         ...action.payload,
       };
     },
     shopLinks: (state, action: PayloadAction<ICardLinks>) => {
-      state.shopLinks = [...state.shopLinks, action.payload];
+      state.links = [...state.links, action.payload];
     },
     shopLinksEdit: (state, action: PayloadAction<ICardLinks>) => {
-      const newLinks = state.shopLinks.map((link) =>
+      const newLinks = state.links.map((link) =>
         link.id === action.payload.id ? action.payload : link
       );
-      state.shopLinks = newLinks;
+      state.links = newLinks;
     },
     shopLinksOverwrite: (state, action: PayloadAction<ICardLinks[]>) => {
-      state.shopLinks = action.payload;
+      state.links = action.payload;
     },
     shopLinksDelete: (state, action: PayloadAction<string>) => {
-      const newLinks = state.shopLinks.filter(
-        (link) => link.id !== action.payload
-      );
-      state.shopLinks = newLinks;
+      const newLinks = state.links.filter((link) => link.id !== action.payload);
+      state.links = newLinks;
     },
   },
 });
