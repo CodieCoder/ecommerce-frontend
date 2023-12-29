@@ -40,8 +40,7 @@ const SignupForm: React.FC = () => {
     values["dateOfBirth"] = values.dateOfBirth
       ? new Date(values.dateOfBirth).toISOString()
       : "";
-    values["registrationDevice"] = window.navigator.userAgent;
-    values["registrationIpAddress"] = "72.35.23.163";
+    values["userDevice"] = window.navigator.userAgent;
     submit(values);
   };
 

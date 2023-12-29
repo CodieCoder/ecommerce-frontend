@@ -5,7 +5,7 @@ export const ApiBaseUrlEnum = {
 export const Constants_Api_Endpoint = {
   User: {
     signup: "user/signup",
-    signin: "user/signin",
+    signin: "user/login",
   },
   Card: {
     save: "card",

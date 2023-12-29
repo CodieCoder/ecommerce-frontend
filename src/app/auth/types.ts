@@ -10,8 +10,8 @@ export interface IRegistrationForm {
   dateOfBirth: string;
   country: string;
   accountType: AccountTypesEnum;
-  registrationDevice: string;
-  registrationIpAddress?: string;
+  userDevice: string;
+  userIP?: string;
 }
 
 export interface ISignInForm {

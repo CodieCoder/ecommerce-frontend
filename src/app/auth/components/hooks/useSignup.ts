@@ -24,7 +24,7 @@ const useSignup = () => {
           "You account has been created successfully. Log in to continue"
         );
         setIsSubmitError(undefined);
-        router.push("signin");
+        router.push("/auth/signin");
       } else {
         setIsSubmitError(data.data);
       }

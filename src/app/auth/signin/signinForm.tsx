@@ -19,7 +19,7 @@ import Error_Api from "@/components/errorDisplay/ApiError";
 interface ISigninForm {
   email: string;
   password: string;
-  registrationDevice?: string;
+  userDevice?: string;
 }
 
 const SigninForm: React.FC = () => {
@@ -28,8 +28,7 @@ const SigninForm: React.FC = () => {
   const { submit, isLoading, response } = useSignIn();
 
   const onSubmit = (values: ISigninForm) => {
-    values["registrationDevice"] = window.navigator.userAgent;
-    console.log("Testee form values: ", values);
+    values["userDevice"] = window.navigator.userAgent;
     submit(values);
   };
 
